@@ -17,7 +17,7 @@
         </div>
         <ul>
             <li><a href="pages/contact.php">Contact Us</a></li>
-            <li><a href="pages/sign-up.html">Sign Up</a></li>
+            <li><a href="pages/sign-up.php">Sign Up</a></li>
             <li><a href="pages/login.php">Login</a></li>
 
         </ul>
@@ -42,6 +42,15 @@
         <a href="">contact us</a>
         <a href="">top</a>
     </footer>
+
+
+
+
+
+
+
+
+    <div class="status" id="status"></div>
 
 </body>
 

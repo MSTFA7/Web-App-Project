@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+    <?php
+        include("../includes/database.php");
 
+    ?>
+    <script src="../assets/js/status.js"></script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +21,7 @@
         </div>
         <ul>
             <li><a href="contact.php">Contact Us</a></li>
-            <li><a href="sign-up.html">Sign Up</a></li>
+            <li><a href="sign-up.php">Sign Up</a></li>
             <li><a class="active" href="login.php">Login</a></li>
 
         </ul>
@@ -35,7 +39,7 @@
         </form>
     </div>
 
-
+    <div class="status" id="status"></div>
 </body>
 
 </html>

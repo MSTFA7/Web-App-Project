@@ -40,3 +40,13 @@ body {
     grid-area: cont;
     height: 100%;
 }
+
+.status {
+    border-radius: 50%;
+    background-color: red;
+    height: 8px;
+    width: 8px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}

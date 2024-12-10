@@ -15,7 +15,7 @@
             </div>
             <ul>
                 <li><a href="contact.php">Contact Us</a></li>
-                <li><a href="sign-up.html">Sign Up</a></li>
+                <li><a href="sign-up.php">Sign Up</a></li>
                 <li><a href="login.php">Login</a></li>
                 
             </ul>
