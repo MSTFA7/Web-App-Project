@@ -27,11 +27,11 @@
         </ul>
     </nav>
     <div class="login-container">
-        <form class="login-form" action="">
+        <form class="login-form" action="../includes/login-handler.php" method="post">
             <h1>Login</h1>
             <div style="background-color: grey; height: 3px; margin-bottom: 12px; border-radius: 20px;"></div>
-            <input type="text" id="username" placeholder="Username">
-            <input type="password" id="password" placeholder="Password">
+            <input type="text" id="username" name="username" placeholder="Username">
+            <input type="password" id="password" name="password" placeholder="Password">
 
             <div style="display: flex; flex-direction: row-reverse; margin-top: 10px;">
                 <button type="submit">Join</button>

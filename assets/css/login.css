@@ -3,6 +3,9 @@ body {
     background-color: #353941;
     margin: 0px;
     font-family: Roboto, sans-serif;
+    /* background-image: url(../images/hat.png); */
+    background-size: 60px 60px;
+    background-size: 60px 60px, 60px 60px;
 }
 
 body {

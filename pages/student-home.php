@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
     <?php
+        include("../includes/auth.php");
+        require_role(1);
+        include("../includes/getinfo.php");
         include("../includes/database.php");
-
     ?>
+    
     <script src="../assets/js/status.js"></script>
 <head>
     <meta charset="UTF-8">
@@ -15,9 +18,10 @@
     <div class="container">
         <div class="navbar"></div>
         <div class="sidebar">
-            <div class="name">
+            <div class="name"> 
+                <h2>Student</h2>
                 <h1>Hello,</h1>
-                <h1>mustafa</h1>
+                <h1><?php echo $first_name; ?></h1>
             </div>
             <div class="linebreak"></div>
             <div>
@@ -25,6 +29,7 @@
                     <li><a href="">Courses</a></li>
                     <li><a href="">Enroll</a></li>
                     <li><a href="">Help</a></li>
+                    <li><a href="../includes/logout.php" class="logout">LOGOUT</a></li>
                 </ul>
             </div>
         </div>

@@ -89,3 +89,12 @@ li {
     bottom: 10px;
     right: 10px;
 }
+
+a.logout {
+    color: white;
+    border-radius: 10px;
+    background-color: red;
+    font-size: large;
+    padding: 5px;
+    
+}
