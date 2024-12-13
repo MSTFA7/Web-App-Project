@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-    <?php
-        include("../includes/database.php");
 
-    ?>
     <script src="../assets/js/status.js"></script>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../assets/css/sign-up.css">
+    <link rel="stylesheet" href="sign-up.css">
 </head>
 
 <body>
     <nav>
         <div>
             <ul>
-                <li> <a href="../index.php"><img class="logo" src="../assets/images/home.png" alt="Home"></a></li>
+                <li> <a href=""><img class="logo" src="home.png" alt="Home"></a></li>
             </ul>
         </div>
         <ul>
@@ -32,21 +29,12 @@
             <h1>Sign Up</h1>
             <div style="background-color: grey; height: 3px; margin-bottom: 12px; border-radius: 20px;"></div>
 
-            <input type="text" id="first_name" name="first_name" placeholder="First Name">
-            <input type="text" id="last-name" name="last_name" placeholder="Last Name">
-            <input type="email" id="email" name="email" placeholder="Email">
-            <input type="text" id="username" name="username" placeholder="Username">
-            <input type="password" id="password" name="password" placeholder="Password">
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
 
-            <label for="user-type">Select User Type:</label>
-            <select id="user-type" name="user-type">
-                <option value="Student">Student</option>
-                <option value="Teacher">Teacher</option>
-            </select>
             <div style="display: flex; flex-direction: row-reverse; margin-top: 10px;">
                 <button type="submit">Create</button>
             </div>
-            
         </form>
     </div>
 
