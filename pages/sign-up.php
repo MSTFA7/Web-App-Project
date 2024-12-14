@@ -28,20 +28,20 @@
         </ul>
     </nav>
     <div class="sign-up-container">
-        <form class="sign-up-form" action="">
+        <form class="sign-up-form" action="../includes/signup-handler.php" method="post">
             <h1>Sign Up</h1>
             <div style="background-color: grey; height: 3px; margin-bottom: 12px; border-radius: 20px;"></div>
 
-            <input type="text" id="first_name" name="first_name" placeholder="First Name">
-            <input type="text" id="last-name" name="last_name" placeholder="Last Name">
-            <input type="email" id="email" name="email" placeholder="Email">
-            <input type="text" id="username" name="username" placeholder="Username">
-            <input type="password" id="password" name="password" placeholder="Password">
+            <input type="text" id="first_name" name="first_name" placeholder="First Name" require>
+            <input type="text" id="last_name" name="last_name" placeholder="Last Name" require>
+            <input type="email" id="email" name="email" placeholder="Email" require>
+            <input type="text" id="username" name="username" placeholder="Username" require>
+            <input type="password" id="password" name="password" placeholder="Password" require>
 
-            <label for="user-type">Select User Type:</label>
-            <select id="user-type" name="user-type">
-                <option value="Student">Student</option>
-                <option value="Teacher">Teacher</option>
+            <label for="user_type">Select User Type:</label>
+            <select id="user_type" name="user_type" require>
+                <option value="1">Student</option>
+                <option value="2">Teacher</option>
             </select>
             <div style="display: flex; flex-direction: row-reverse; margin-top: 10px;">
                 <button type="submit">Create</button>
