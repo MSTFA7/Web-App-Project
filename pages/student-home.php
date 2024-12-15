@@ -24,7 +24,7 @@ $result = $connection->query($query);
 <body>
     <div class="container">
         <div class="navbar">
-            <div>STUDENT'S DASHBOARD</div>
+            <div>STUDENT DASHBOARD</div>
         </div>
         <div class="sidebar">
             <div class="name">
@@ -78,7 +78,7 @@ $result = $connection->query($query);
                             while ($row = $result->fetch_assoc()) {
                                 ?>
                                 <div class="course-card">
-                                    <p><strong>Subject:</strong> <?= htmlspecialchars($row['subject_name']); ?></p>
+                                    <h3> <span class="black-highlight"> <?= htmlspecialchars($row['subject_name']); ?> </span</h3>
                                     <p><strong>Level:</strong> <?= htmlspecialchars($row['level_name']); ?></p>
                                     <p><strong>Board:</strong> <?= htmlspecialchars($row['board_name']); ?></p>
                                     <p><strong>Semester:</strong> <?= htmlspecialchars($row['semester_name']); ?></p>
@@ -156,7 +156,7 @@ $result = $connection->query($query);
                             while ($row = $result->fetch_assoc()) {
                                 ?>
                                 <div class="course-card">
-                                    <p><strong>Subject:</strong> <?= htmlspecialchars($row['subject_name']); ?></p>
+                                    <h3><span class="black-highlight"><?= htmlspecialchars($row['subject_name']); ?></span> </h3>
                                     <p><strong>Level:</strong> <?= htmlspecialchars($row['level_name']); ?></p>
                                     <p><strong>Board:</strong> <?= htmlspecialchars($row['board_name']); ?></p>
                                     <p><strong>Semester:</strong> <?= htmlspecialchars($row['semester_name']); ?></p>

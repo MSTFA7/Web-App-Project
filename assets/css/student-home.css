@@ -45,6 +45,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0;
+    user-select: none;
 }
 
 .linebreak {
@@ -55,6 +56,7 @@ body {
 .cont {
     grid-area: cont;
     width: 90%;
+    height: auto;
     margin: 50px auto;
     padding: 20px;
     background-color: #26282B;
@@ -63,6 +65,8 @@ body {
     text-align: center;
     box-sizing: border-box;
     user-select: none;
+    min-width: 0;
+    animation: fadeIn 1.5s ease-out;
 }
 
 .name {
@@ -115,11 +119,12 @@ a.logout {
 
 /* Course Card Styles */
 .course-card {
-    background: #2d3037;
+    background: #049910;
     border: 1px solid #444;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
     padding: 20px;
+    padding-bottom: 15px;
     width: 300px;
     color: #90B8F8;
     display: flex;
@@ -136,12 +141,12 @@ a.logout {
 
 .course-card p {
     margin: 5px 0;
-    color: #b3b3b3;
+    color: #ffffff;
     font-size: 1.2rem;
 }
 
 .course-card button {
-    background: #90B8F8;
+    background: #1871ff;
     color: #2d3037;
     border: none;
     padding: 10px;
@@ -163,12 +168,21 @@ a.logout {
 
 .courses-container {
     display: flex;
-    gap: 20px;
+    gap: 10px;
+    box-sizing: border-box;
+    height: 100%;
+    min-width: 0;
+    flex-wrap: wrap;
+    
 }
+
+
+
 
 .course-card form {
     display: flex;
     flex-direction: row-reverse;
+    margin-top: 7px;
 }
 
 .teacher-name {
@@ -186,4 +200,39 @@ button.delete-button {
 
 button.delete-button:hover {
     background-color: #ff1a1a;
+}
+
+#enroll {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 0;
+    min-height: 0;
+}
+
+.active-courses {
+
+}
+
+.black-highlight {
+    color: black;
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

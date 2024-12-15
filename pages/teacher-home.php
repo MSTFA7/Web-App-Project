@@ -21,7 +21,7 @@ include("../includes/database.php"); // Database connection
 <body>
     <div class="container">
         <div class="navbar">
-            <div>TEACHER'S DASHBOARD</div>
+            <div>TEACHER DASHBOARD</div>
         </div>
         <div class="sidebar">
             <div class="name">
@@ -93,6 +93,12 @@ include("../includes/database.php"); // Database connection
                                 <p>Level: Grade {$row['level_name']}</p>
                                 <p>Board: {$row['board_name']}</p>
                                 <p>Semester: {$row['semester_name']}</p>
+                                
+                                <form action='../includes/teacher-course-delete.php' method='POST'>
+                                        <input type='hidden' name='course_id' value='{$row['course_id']};'>
+                                        <input type='hidden' name='teacher_id' value='$teacher_id;'>
+                                        <button type='submit' class='delete-button'>Delete</button>
+                                    </form>
                                 </div>
                                 ";
                             }

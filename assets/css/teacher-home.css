@@ -67,6 +67,7 @@ body {
     text-align: center;
     box-sizing: border-box;
     user-select: none;
+    animation: fadeIn 1.5s ease-out;
 }
 
 .name {
@@ -283,4 +284,24 @@ button:hover {
     min-width: 0;
     flex-wrap: wrap;
     
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
