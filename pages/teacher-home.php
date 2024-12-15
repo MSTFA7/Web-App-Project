@@ -92,13 +92,15 @@ include("../includes/database.php"); // Database connection
                             // Loop through each active course
                             while ($row = mysqli_fetch_assoc($result)) {
                                 echo "
-                                <div class='course-card' style='cursor: pointer;' onclick='viewStudents({$row['course_id']})' >
-                                    <h3>Subject: {$row['subject_name']}</h3>
-                                    <p>Level: Grade {$row['level_name']}</p>
-                                    <p>Board: {$row['board_name']}</p>
-                                    <p>Semester: {$row['semester_name']}</p>
+                                <div class='course-card'>
+                                    <h3 style='cursor: pointer;' onclick='viewStudents({$row['course_id']})'>Subject: {$row['subject_name']}</h3>
+                                    <p style='cursor: pointer;' onclick='viewStudents({$row['course_id']})'>Level: Grade {$row['level_name']}</p>
+                                    <p style='cursor: pointer;' onclick='viewStudents({$row['course_id']})'>Board: {$row['board_name']}</p>
+                                    <p style='cursor: pointer;' onclick='viewStudents({$row['course_id']})'>Semester: {$row['semester_name']}</p>
+                                    <p style='cursor: pointer;' onclick='viewStudents({$row['course_id']})'>Course ID: {$row['course_id']}</p>
                                     <form action='../includes/teacher-course-delete.php' method='POST'>
                                         <input type='hidden' name='course_id' value='{$row['course_id']}'>
+                                        <input type='hidden' name='teacher_id' value='$teacher_id'>
                                         <button type='submit' class='delete-button'>Delete</button>
                                     </form>
                                 </div>
@@ -201,6 +203,12 @@ include("../includes/database.php"); // Database connection
         </div>
     </div>
     <script>
+         function showTab(tabId) {
+            const tabs = document.querySelectorAll(".tab-content");
+            tabs.forEach(tab => {
+                tab.style.display = tab.id === tabId ? "block" : "none";
+            });
+        }
         function viewStudents(courseId) {
             console.log("Course ID: ", courseId); // Debugging: Check the course ID being passed.
 

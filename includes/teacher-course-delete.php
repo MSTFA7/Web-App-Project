@@ -5,10 +5,10 @@ include 'database.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $teacher_id = $_POST['teacher_id'];
     $course_id = $_POST['course_id'];
-
+    
+    // echo $teacher_id . $course_id;
+    // exit();
     if ($teacher_id && $course_id) {
-        // var_dump($teacher_id, $course_id);
-        // exit();
         $query = "DELETE FROM teachers_courses WHERE teacher_id = ? AND course_id = ?";
 
         if ($stmt = $connection->prepare($query)) {
