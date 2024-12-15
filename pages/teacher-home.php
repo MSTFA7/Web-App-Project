@@ -13,7 +13,8 @@ include("../includes/database.php"); // Database connection
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teacher Dashboard</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,700,0,200"/>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,700,0,200" />
     <link rel="stylesheet" href="../assets/css/teacher-home.css">
     <script src="../assets/js/status"></script>
 </head>
@@ -31,10 +32,13 @@ include("../includes/database.php"); // Database connection
             <div class="linebreak"></div>
             <div>
                 <ul>
-                    <li><a href="#" onclick="showTab('active-courses')"><span class="material-symbols-outlined">check</span>Active Courses</a></li>
-                    <li><a href="#" onclick="showTab('start-course')"><span class="material-symbols-outlined">start</span>Start Course</a></li>
+                    <li><a href="#" onclick="showTab('active-courses')"><span
+                                class="material-symbols-outlined">check</span>Active Courses</a></li>
+                    <li><a href="#" onclick="showTab('start-course')"><span
+                                class="material-symbols-outlined">start</span>Start Course</a></li>
                     <li><a href=""><span class="material-symbols-outlined">help</span>Help</a></li>
-                    <li><a href="../includes/logout.php" class="logout"> <span class="material-symbols-outlined">logout</span>LOGOUT</a></li>
+                    <li><a href="../includes/logout.php" class="logout"> <span
+                                class="material-symbols-outlined">logout</span>LOGOUT</a></li>
                 </ul>
             </div>
         </div>
@@ -88,19 +92,19 @@ include("../includes/database.php"); // Database connection
                             // Loop through each active course
                             while ($row = mysqli_fetch_assoc($result)) {
                                 echo "
-                                <div class='course-card'>
-                                <h3>Subject: {$row['subject_name']}</h3>
-                                <p>Level: Grade {$row['level_name']}</p>
-                                <p>Board: {$row['board_name']}</p>
-                                <p>Semester: {$row['semester_name']}</p>
-                                
-                                <form action='../includes/teacher-course-delete.php' method='POST'>
-                                        <input type='hidden' name='course_id' value='{$row['course_id']};'>
-                                        <input type='hidden' name='teacher_id' value='$teacher_id;'>
+                                <div class='course-card' style='cursor: pointer;' onclick='viewStudents({$row['course_id']})' >
+                                    <h3>Subject: {$row['subject_name']}</h3>
+                                    <p>Level: Grade {$row['level_name']}</p>
+                                    <p>Board: {$row['board_name']}</p>
+                                    <p>Semester: {$row['semester_name']}</p>
+                                    <form action='../includes/teacher-course-delete.php' method='POST'>
+                                        <input type='hidden' name='course_id' value='{$row['course_id']}'>
                                         <button type='submit' class='delete-button'>Delete</button>
                                     </form>
                                 </div>
                                 ";
+
+
                             }
                         } else {
                             echo "<p>No active courses found.</p>";
@@ -108,6 +112,10 @@ include("../includes/database.php"); // Database connection
 
                         ?>
                     </div>
+                    <div id="students-container">
+                        <!-- Students will load here dynamically -->
+                    </div>
+
                 </div>
             </div>
 
@@ -183,12 +191,52 @@ include("../includes/database.php"); // Database connection
         </div>
     </div>
     </div>
+
+    <div id="studentsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div id="modal-body">
+                <!-- Students data will be loaded here -->
+            </div>
+        </div>
+    </div>
     <script>
-        function showTab(tabId) {
-            const tabs = document.querySelectorAll(".tab-content");
-            tabs.forEach(tab => {
-                tab.style.display = tab.id === tabId ? "block" : "none";
-            });
+        function viewStudents(courseId) {
+            console.log("Course ID: ", courseId); // Debugging: Check the course ID being passed.
+
+            // Open the modal
+            const modal = document.getElementById("studentsModal");
+            modal.style.display = "block";
+
+            // Clear previous content
+            document.getElementById("modal-body").innerHTML = "<p>Loading...</p>";
+
+            // Create a new XMLHttpRequest
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "../includes/fetch-students.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    console.log("Response: ", xhr.responseText); // Debugging: Log server response.
+                    document.getElementById("modal-body").innerHTML = xhr.responseText;
+                } else {
+                    document.getElementById("modal-body").innerHTML = "<p>Failed to load students. Status: " + xhr.status + "</p>";
+                }
+            };
+
+            xhr.onerror = function () {
+                document.getElementById("modal-body").innerHTML = "<p>An error occurred. Please try again.</p>";
+            };
+
+            // Send the course ID as POST data
+            xhr.send("course_id=" + encodeURIComponent(courseId));
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            const modal = document.getElementById("studentsModal");
+            modal.style.display = "none";
         }
     </script>
     <div class="status" id="status"></div>
