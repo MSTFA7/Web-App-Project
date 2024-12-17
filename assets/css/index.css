@@ -139,7 +139,9 @@ footer {
     margin-bottom: 20px;
     background-color: #26292e;
     padding: 5px;
-    padding-bottom: 2.4vh;
+    padding-bottom: 2.5vh;
+    position: fixed;
+    width: 100vw;
 }
 
 footer a {
