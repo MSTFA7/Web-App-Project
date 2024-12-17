@@ -6,11 +6,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = mysqli_real_escape_string($connection, $_POST['username']);
     $password = mysqli_real_escape_string($connection, $_POST['password']);
 
-    // Check if empty
+    // Input validation
     if (empty($username) || empty($password)) {
         echo "Username or Password cannot be empty.";
         exit;
     }
+
+    if (strlen($username) < 8) {
+        echo "Username must be at least 8 characters long.";
+        exit;
+    }
+
+    if (strlen($password) < 8) {
+        echo "Password must be at least 8 characters long.";
+        exit;
+    }
+
 
     // Query the database
     $query = "SELECT user_id, username, password, role_id FROM users WHERE username = ?";
@@ -33,10 +44,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_SESSION['role_id'] = $role_id;
 
             // Redirect based on role_id
-            if ($role_id == 1) { 
+            if ($role_id == 1) {
                 header("Location: ../pages/student-home.php");
                 exit;
-            } elseif ($role_id == 2) { 
+            } elseif ($role_id == 2) {
                 header("Location: ../pages/teacher-home.php");
                 exit;
             } else {

@@ -10,6 +10,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../assets/css/login.css">
+    <script>
+        // Client-side validation
+        function validateLoginForm(event) {
+            // Get form inputs
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            // Validation logic
+            if (username.length < 8) {
+                alert("Username must be at least 8 characters long.");
+                event.preventDefault(); // Prevent form submission
+                return false;
+            }
+            if (password.length < 8) {
+                alert("Password must be at least 8 characters long.");
+                event.preventDefault(); // Prevent form submission
+                return false;
+            }
+
+            return true; // Allow form submission
+        }
+    </script>
 </head>
 
 <body>

@@ -15,6 +15,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         echo "All fields are required.";
         exit;
     }
+    // Validate username and password length
+    if (strlen($username) < 8) {
+        echo "Username must be at least 8 characters long.";
+        exit;
+    }
+    if (strlen($password) < 8) {
+        echo "Password must be at least 8 characters long.";
+        exit;
+    }
 
     // Check if the username or email already exists
     $check_query = "SELECT * FROM users WHERE username = ? OR email = ?";
