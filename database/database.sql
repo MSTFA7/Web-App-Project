@@ -71,9 +71,9 @@ CREATE TABLE `students` (
   `user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `students` (`student_id`, `user_id`) VALUES
-(1, 4),
-(2, 6);
+-- INSERT INTO `students` (`student_id`, `user_id`) VALUES
+-- (1, 4),
+-- (2, 6);
 
 CREATE TABLE `students_courses` (
   `student_id` int(11) NOT NULL,
@@ -81,14 +81,14 @@ CREATE TABLE `students_courses` (
   `enrollment_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `students_courses` (`student_id`, `course_id`, `enrollment_date`) VALUES
-(1, 3, '2024-12-13 19:32:27'),
-(1, 8, '2024-12-13 19:35:42'),
-(1, 10, '2024-12-13 19:32:35'),
-(1, 11, '2024-12-13 19:34:51'),
-(2, 8, '2024-12-13 18:00:00'),
-(2, 16, '2024-12-15 15:19:09'),
-(2, 19, '2024-12-15 15:15:24');
+-- INSERT INTO `students_courses` (`student_id`, `course_id`, `enrollment_date`) VALUES
+-- (1, 3, '2024-12-13 19:32:27'),
+-- (1, 8, '2024-12-13 19:35:42'),
+-- (1, 10, '2024-12-13 19:32:35'),
+-- (1, 11, '2024-12-13 19:34:51'),
+-- (2, 8, '2024-12-13 18:00:00'),
+-- (2, 16, '2024-12-15 15:19:09'),
+-- (2, 19, '2024-12-15 15:15:24');
 
 CREATE TABLE `subjects` (
   `subject_id` int(11) NOT NULL,
@@ -112,9 +112,9 @@ CREATE TABLE `teachers` (
   `user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `teachers` (`teacher_id`, `user_id`) VALUES
-(1, 7),
-(2, 8);
+-- INSERT INTO `teachers` (`teacher_id`, `user_id`) VALUES
+-- (1, 7),
+-- (2, 8);
 
 CREATE TABLE `teachers_courses` (
   `teacher_id` int(11) NOT NULL,
@@ -122,9 +122,9 @@ CREATE TABLE `teachers_courses` (
   `course_creation` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `teachers_courses` (`teacher_id`, `course_id`, `course_creation`) VALUES
-(1, 19, '2024-12-15 15:14:38'),
-(2, 16, '2024-12-15 15:18:58');
+-- INSERT INTO `teachers_courses` (`teacher_id`, `course_id`, `course_creation`) VALUES
+-- (1, 19, '2024-12-15 15:14:38'),
+-- (2, 16, '2024-12-15 15:18:58');
 
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
@@ -137,11 +137,11 @@ CREATE TABLE `users` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `username`, `password`, `email`, `role_id`, `created_at`) VALUES
-(4, 'Mustafa', 'Othman', 'MSTFA', '$2y$10$mC.c8A63tRoWtqZyP9h/wesqNbL/VqTVaRhMwwAvFt4Cew9kuBPmy', 'mustafaothman7@gmail.com', 1, '2024-12-13 12:18:53'),
-(6, 'Youssef', 'Wael', 'joe', '$2y$10$dYGCOiOws2MWsLhep9FNm.9BZaoVViPyGUNsmxYowLGZncRuB35Bu', 'yousef@email.com', 1, '2024-12-13 12:26:09'),
-(7, 'mustafa', 'othman', 'teacher', '$2y$10$efbW3M4K2UdzO7s64s2cueoJ6NYbok2bhA/YRYlQRYg659Q7nt8YW', 'teacher@email.com', 2, '2024-12-13 13:18:07'),
-(8, 'Wagd', 'Hossam', 'wagd', '$2y$10$Bwoq4s0C9liz908YHyzA9.XA6DHX05R8x/OjbDcgvHL0Cyj/m3s.q', 'wagd@email.com', 2, '2024-12-15 15:18:29');
+-- INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `username`, `password`, `email`, `role_id`, `created_at`) VALUES
+-- (4, 'Mustafa', 'Othman', 'MSTFA', '$2y$10$mC.c8A63tRoWtqZyP9h/wesqNbL/VqTVaRhMwwAvFt4Cew9kuBPmy', 'mustafaothman7@gmail.com', 1, '2024-12-13 12:18:53'),
+-- (6, 'Youssef', 'Wael', 'joe', '$2y$10$dYGCOiOws2MWsLhep9FNm.9BZaoVViPyGUNsmxYowLGZncRuB35Bu', 'yousef@email.com', 1, '2024-12-13 12:26:09'),
+-- (7, 'mustafa', 'othman', 'teacher', '$2y$10$efbW3M4K2UdzO7s64s2cueoJ6NYbok2bhA/YRYlQRYg659Q7nt8YW', 'teacher@email.com', 2, '2024-12-13 13:18:07'),
+-- (8, 'Wagd', 'Hossam', 'wagd', '$2y$10$Bwoq4s0C9liz908YHyzA9.XA6DHX05R8x/OjbDcgvHL0Cyj/m3s.q', 'wagd@email.com', 2, '2024-12-15 15:18:29');
 
 
 ALTER TABLE `boards`
