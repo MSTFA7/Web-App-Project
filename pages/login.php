@@ -61,7 +61,6 @@
         </form>
     </div>
 
-    <div class="status" id="status"></div>
 </body>
 
 </html>

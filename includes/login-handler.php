@@ -12,15 +12,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         exit;
     }
 
-    if (strlen($username) < 8) {
-        echo "Username must be at least 8 characters long.";
-        exit;
-    }
+    // if (strlen($username) < 8) {
+    //     echo "Username must be at least 8 characters long.";
+    //     exit;
+    // }
 
-    if (strlen($password) < 8) {
-        echo "Password must be at least 8 characters long.";
-        exit;
-    }
+    // if (strlen($password) < 8) {
+    //     echo "Password must be at least 8 characters long.";
+    //     exit;
+    // }
 
 
     // Query the database
@@ -49,6 +49,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 exit;
             } elseif ($role_id == 2) {
                 header("Location: ../pages/teacher-home.php");
+                exit;
+            } elseif ($role_id == 3) {
+                header("Location: ../pages/admin.php");
                 exit;
             } else {
                 echo "Invalid role.";

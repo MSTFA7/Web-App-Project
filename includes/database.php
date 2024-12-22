@@ -1,7 +1,7 @@
 <?php
     $db_server = "localhost";
     $db_user = "root";
-    $db_pass = "MYSQLDatabase33@6";
+    $db_pass = "";
     $db_name = "learningdb";
     $connection = "";
 

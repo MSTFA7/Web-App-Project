@@ -349,3 +349,19 @@ button:hover {
 .modal h3 {
     color: white;
 }
+
+.exists {
+    color: white;
+    position: absolute;
+    top: 3%;
+    left: 50%;
+}
+
+.hidden {
+    display: none;
+}
+
+.active-courses p {
+    color: white;
+    font-size: xx-large;
+}

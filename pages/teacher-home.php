@@ -113,6 +113,14 @@ include("../includes/database.php"); // Database connection
                         }
 
                         ?>
+
+
+                        <?php if (isset($_SESSION['exists'])): ?>
+                            <div class="exists" id="exists">
+                                <?= htmlspecialchars($_SESSION['exists']); ?>
+                                <?php unset($_SESSION['exists']); ?>
+                            </div>
+                        <?php endif; ?>
                     </div>
                     <div id="students-container">
                         <!-- Students will load here dynamically -->
@@ -148,7 +156,7 @@ include("../includes/database.php"); // Database connection
                                 <option value="" disabled selected>Select Level</option>
                                 <?php
                                 // Fetch levels (grades) from the database
-                                $query = "SELECT level_id, grade FROM levels";
+                                $query = "SELECT level_id, grade FROM levels ORDER BY grade ASC";
                                 $result = mysqli_query($connection, $query);
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     echo "<option value='{$row['level_id']}'>Grade {$row['grade']}</option>";
@@ -186,9 +194,14 @@ include("../includes/database.php"); // Database connection
                                 ?>
                             </select>
                         </div>
+
+
+
+
                     </div>
                     <button type="submit">Start Course</button>
                 </form>
+
             </div>
         </div>
     </div>
@@ -203,12 +216,19 @@ include("../includes/database.php"); // Database connection
         </div>
     </div>
     <script>
-         function showTab(tabId) {
+        setTimeout(function () {
+            document.querySelector('.exists').classList.add('hidden'); // Target by class
+        }, 3000);
+
+        
+        function showTab(tabId) {
             const tabs = document.querySelectorAll(".tab-content");
             tabs.forEach(tab => {
                 tab.style.display = tab.id === tabId ? "block" : "none";
             });
         }
+
+
         function viewStudents(courseId) {
             console.log("Course ID: ", courseId); // Debugging: Check the course ID being passed.
 
@@ -247,7 +267,6 @@ include("../includes/database.php"); // Database connection
             modal.style.display = "none";
         }
     </script>
-    <div class="status" id="status"></div>
 </body>
 
 </html>

@@ -11,7 +11,8 @@ $query = "
 ";
 $result = $connection->query($query);
 ?>
-
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,700,0,200" />
 <script src="../assets/js/status.js"></script>
 
 <head>
@@ -34,10 +35,13 @@ $result = $connection->query($query);
             <div class="linebreak"></div>
             <div>
                 <ul>
-                    <li><a href="#" onclick="showTab('courses')">My Courses</a></li>
-                    <li><a href="#" onclick="showTab('enroll')">Enroll</a></li>
-                    <li><a href="#" onclick="showTab('help')">Help</a></li>
-                    <li><a href="../includes/logout.php" class="logout">LOGOUT</a></li>
+                    <li><a href="#" onclick="showTab('courses')"><span class="material-symbols-outlined">check</span>My
+                            Courses</a></li>
+                    <li><a href="#" onclick="showTab('enroll')"><span
+                    class="material-symbols-outlined">add_circle</span>Enroll</a></li>
+                    <li><a href="#" onclick="showTab('help')"><span class="material-symbols-outlined">help</span>Help</a></li>
+                    <li><a href="../includes/logout.php" class="logout"><span
+                    class="material-symbols-outlined">logout</span>LOGOUT</a></li>
                 </ul>
             </div>
         </div>
@@ -78,17 +82,18 @@ $result = $connection->query($query);
                             while ($row = $result->fetch_assoc()) {
                                 ?>
                                 <div class="course-card">
-                                    <h3> <span class="black-highlight"> <?= htmlspecialchars($row['subject_name']); ?> </span</h3>
-                                    <p><strong>Level:</strong> <?= htmlspecialchars($row['level_name']); ?></p>
-                                    <p><strong>Board:</strong> <?= htmlspecialchars($row['board_name']); ?></p>
-                                    <p><strong>Semester:</strong> <?= htmlspecialchars($row['semester_name']); ?></p>
-                                    <p class="teacher-name"><strong>Teacher:</strong> <?= htmlspecialchars($row['teacher_name']); ?>
-                                    </p>
-                                    <form action="../includes/student-course-delete.php" method="POST">
-                                        <input type="hidden" name="course_id" value="<?= $row['course_id']; ?>">
-                                        <input type="hidden" name="student_id" value="<?= $student_id; ?>">
-                                        <button type="submit" class="delete-button">Leave</button>
-                                    </form>
+                                    <h3> <span class="black-highlight"> <?= htmlspecialchars($row['subject_name']); ?> </span< /h3>
+                                            <p><strong>Level:</strong> <?= htmlspecialchars($row['level_name']); ?></p>
+                                            <p><strong>Board:</strong> <?= htmlspecialchars($row['board_name']); ?></p>
+                                            <p><strong>Semester:</strong> <?= htmlspecialchars($row['semester_name']); ?></p>
+                                            <p class="teacher-name"><strong>Teacher:</strong>
+                                                <?= htmlspecialchars($row['teacher_name']); ?>
+                                            </p>
+                                            <form action="../includes/student-course-delete.php" method="POST">
+                                                <input type="hidden" name="course_id" value="<?= $row['course_id']; ?>">
+                                                <input type="hidden" name="student_id" value="<?= $student_id; ?>">
+                                                <button type="submit" class="delete-button">Leave</button>
+                                            </form>
                                 </div>
                                 <?php
                             }
@@ -191,7 +196,6 @@ $result = $connection->query($query);
         </div>
     </div>
 
-    <div class="status" id="status"></div>
 </body>
 <script>
     function showTab(tabId) {

@@ -10,8 +10,6 @@ if ($_SESSION['role_id'] != 2) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    echo'test';
-    echo $teacher_id;
     $subject_id = mysqli_real_escape_string($connection, $_POST['subject_id']);
     $level_id = mysqli_real_escape_string($connection, $_POST['level_id']);
     $board_id = mysqli_real_escape_string($connection, $_POST['board_id']);
@@ -25,8 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = mysqli_stmt_get_result($stmt);
 
     if ($row = mysqli_fetch_assoc($result)) {
-        // Course already exists, fetch its ID
-        $course_id = $row['course_id'];
+        $_SESSION['exists'] = "Course already exists.";
+        header("Location: ../pages/teacher-home.php");
+            exit;
     } else {
         // Insert new course into the `courses` table
         $insert_course_query = "INSERT INTO courses (subject_id, level_id, board_id, semester_id) VALUES (?, ?, ?, ?)";
