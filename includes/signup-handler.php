@@ -8,22 +8,28 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = mysqli_real_escape_string($connection, $_POST['email']);
     $username = mysqli_real_escape_string($connection, $_POST['username']);
     $password = mysqli_real_escape_string($connection, $_POST['password']);
-    $user_type = mysqli_real_escape_string($connection, $_POST['user_type']); // 1 = Student, 2 = Teacher
+    $user_type = mysqli_real_escape_string($connection, $_POST['user_type']); // 1 = Student, 2 = Teacher, 3 = Admin
 
     // Check for empty fields
     if (empty($first_name) || empty($last_name) || empty($email) || empty($username) || empty($password) || empty($user_type)) {
-        echo "All fields are required.";
+        $_SESSION['error_message'] = "Fields can not be empty.";
+        header("Location: ../pages/sign-up.php");
         exit;
     }
     // Validate username and password length
-    if (strlen($username) < 8) {
-        echo "Username must be at least 8 characters long.";
+    if (strlen($username) < 3) {
+        $_SESSION['error_message'] = "Username must be at least 3 characters long.";
+        header("Location: ../pages/sign-up.php");
         exit;
     }
     if (strlen($password) < 8) {
-        echo "Password must be at least 8 characters long.";
+        $_SESSION['error_message'] = "Password must be at least 8 characters long.";
+        header("Location: ../pages/sign-up.php");
         exit;
     }
+
+
+
 
     // Check if the username or email already exists
     $check_query = "SELECT * FROM users WHERE username = ? OR email = ?";
@@ -57,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             mysqli_stmt_bind_param($stmt, "i", $user_id);
         } elseif ($user_type == 2) { // Teacher
             $teacher_query = "INSERT INTO teachers (user_id) VALUES (?)";
-            
+
             $stmt = mysqli_prepare($connection, $teacher_query);
             mysqli_stmt_bind_param($stmt, "i", $user_id);
         }
@@ -77,4 +83,3 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 } else {
     echo "Invalid request method.";
 }
-?>

@@ -5,7 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="assets/css/index.css">
+
+
+    <!-- <meta http-equiv="refresh" content="5"> -->
+
 </head>
 
 <body>
@@ -38,9 +46,27 @@
         </div>
     </div>
 
+    <section>
+
+        <div class="video_container">
+            <div class="video_player">
+                <video autoplay muted preload="metadata" class="main-video">
+                    <source src="assets/images/WhatsApp Video 2024-12-17 at 21.20.46_6fca6531.mp4" type="video/mp4">
+                    <!-- <track label="English" kind="subtitles" src="./How To Get Started With VSCode.vtt" srclang="en">
+                    <track label="Urdu" kind="subtitles" src="./test.vtt" srclang="en"> -->
+                </video>
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+
     <footer>
-        <a href="">contact us</a>
-        <a href="">top</a>
+        <a href="./pages/contact.php">contact us</a>
+        <a href="#top">top</a>
     </footer>
 
 
@@ -50,7 +76,7 @@
 
 
 
-    <div class="status" id="status"></div>
+    <script src="assets/js/video-controls.js"></script>
 
 </body>
 

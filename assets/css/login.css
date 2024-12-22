@@ -15,14 +15,15 @@ body {
 
 nav {
     color: white;
-    height: 5vh; /* Ensures the nav bar has a fixed height */
+    height: 5vh;
+    /* Ensures the nav bar has a fixed height */
     padding: 5px 10px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     background-color: #2d3037;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 
@@ -30,7 +31,8 @@ nav {
 .logo {
     display: flex;
     align-items: center;
-    height: 100%; /* Matches the height of the nav bar */
+    height: 100%;
+    /* Matches the height of the nav bar */
     width: 48px;
 }
 
@@ -57,6 +59,7 @@ li a {
 li a:hover {
     background-color: #25272d;
 }
+
 .active {
     background-color: #29A19C;
 }
@@ -68,9 +71,9 @@ li a:hover {
     justify-content: center;
 
     /* Animation */
-    opacity: 0; 
+    opacity: 0;
     transform: translateY(20px);
-    animation: fadeIn 1s ease forwards; 
+    animation: fadeIn 1s ease forwards;
 
 }
 
@@ -90,9 +93,6 @@ li a:hover {
     gap: 4px;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-
-
-
 }
 
 input {
@@ -140,6 +140,7 @@ h1 {
 
     position: relative;
 }
+
 .status {
     border-radius: 50%;
     background-color: red;
@@ -148,4 +149,55 @@ h1 {
     position: fixed;
     bottom: 10px;
     right: 10px;
+}
+
+
+
+
+
+
+.input-control {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-control input {
+    display: block;
+    width: 100%;
+}
+
+
+.input-control.success input {
+    border: 4px solid #09c372;
+}
+
+.input-control.error input {
+    border: 4px solid #ff3860;
+}
+
+.input-control .error {
+    color: #ff3860;
+    font-size: 20px;
+    margin: 4px;
+    margin-bottom: 5px;
+    margin-left: 15px;
+}
+
+
+
+
+
+.error-box {
+    background-color: #f8d7da;
+    color: #842029;
+    border: 1px solid #f5c2c7;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.error-box svg {
+    margin-right: 10px;
 }

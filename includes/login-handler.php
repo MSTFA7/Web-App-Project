@@ -1,5 +1,6 @@
 <?php
 include("database.php");
+session_start();
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Sanitization
@@ -8,20 +9,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Input validation
     if (empty($username) || empty($password)) {
-        echo "Username or Password cannot be empty.";
+        $_SESSION['error_message'] = "Username or Password cannot be empty.";
+        header("Location: ../pages/login.php");
         exit;
     }
 
-    // if (strlen($username) < 8) {
-    //     echo "Username must be at least 8 characters long.";
-    //     exit;
-    // }
+    if (strlen($username) < 3) {
+        $_SESSION['error_message'] = "Username must be at least 3 characters long.";
+        header("Location: ../pages/login.php");
+        exit;
+    }
 
-    // if (strlen($password) < 8) {
-    //     echo "Password must be at least 8 characters long.";
-    //     exit;
-    // }
-
+    if (strlen($password) < 8) {
+        $_SESSION['error_message'] = "Password must be at least 8 characters long.";
+        header("Location: ../pages/login.php");
+        exit;
+    }
 
     // Query the database
     $query = "SELECT user_id, username, password, role_id FROM users WHERE username = ?";
@@ -38,7 +41,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $user_id = $user['user_id'];
             $role_id = $user['role_id'];
 
-            session_start();
             $_SESSION['user_id'] = $user_id; // Store user_id in session
             $_SESSION['username'] = $username;
             $_SESSION['role_id'] = $role_id;
@@ -54,19 +56,26 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 header("Location: ../pages/admin.php");
                 exit;
             } else {
-                echo "Invalid role.";
+                $_SESSION['error_message'] = "Invalid role.";
+                header("Location: ../pages/login.php");
+                exit;
             }
         } else {
-            echo "Invalid username or password.";
+            $_SESSION['error_message'] = "Invalid username or password.";
+            header("Location: ../pages/login.php");
+            exit;
         }
     } else {
-        echo "Invalid username or password.";
+        $_SESSION['error_message'] = "Invalid username or password.";
+        header("Location: ../pages/login.php");
+        exit;
     }
 
     // Close the statement and connection
     mysqli_stmt_close($stmt);
     mysqli_close($connection);
 } else {
-    echo "Invalid request method.";
+    $_SESSION['error_message'] = "Invalid request method.";
+    header("Location: ../pages/login.php");
+    exit;
 }
-?>
