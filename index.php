@@ -44,19 +44,20 @@
         <div class="image">
             <img src="assets/images/home-background.png" alt="">
         </div>
-    </div>
-
-    <section>
-
         <div class="video_container">
             <div class="video_player">
-                <video autoplay muted preload="metadata" class="main-video">
-                    <source src="assets/images/WhatsApp Video 2024-12-17 at 21.20.46_6fca6531.mp4" type="video/mp4">
+                <video autoplay controls muted >
+                    <source src="assets/images/WhatsApp Video 2024-12-17 at 21.20.46_6fca6531.mp4" type="video/mp4" >
                     <!-- <track label="English" kind="subtitles" src="./How To Get Started With VSCode.vtt" srclang="en">
                     <track label="Urdu" kind="subtitles" src="./test.vtt" srclang="en"> -->
                 </video>
             </div>
         </div>
+    </div>
+
+    <section>
+
+        
 
     </section>
 
@@ -76,7 +77,6 @@
 
 
 
-    <script src="assets/js/video-controls.js"></script>
 
 </body>
 

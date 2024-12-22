@@ -98,14 +98,6 @@ const validateInputs = () => {
         passValid = true;
     }
 
-    if (usertypeValue === '') {
-        setSelectError(usertype, 'Select a user type');
-        console.log("if condition")
-    } else {
-        setSelectSuccess(usertype);
-        usertypeValid = true;
-        console.log("else condition")
-    }
 
     // if (password2Value === '') {
     //     setError(password2, 'Please confirm your password');
@@ -114,6 +106,6 @@ const validateInputs = () => {
     // } else {
     //     setSuccess(password2);
     // }
-    return firstnameValid && lastnameValid && userValid && emailValid && passValid && usertypeValid;
+    return firstnameValid && lastnameValid && userValid && emailValid && passValid;
 
 };

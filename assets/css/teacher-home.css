@@ -30,7 +30,7 @@ body {
     display: flex;
   }
   .navbar div {
-    font-size: 2vw;
+    font-size: 5vh;
     font-weight: 900;
     margin-left: 5px;
     color: #c64545;
@@ -68,6 +68,7 @@ body {
     box-sizing: border-box;
     user-select: none;
     animation: fadeIn 1.5s ease-out;
+    height: fit-content;
 }
 
 .name {
@@ -237,7 +238,7 @@ button:hover {
     color: #ffffff;
 }
 
-.course-card p {
+.details {
     margin: 5px 0;
     color: #ffcaca;
     font-size: 1.2rem;
@@ -361,7 +362,61 @@ button:hover {
     display: none;
 }
 
-.active-courses p {
+.active-courses .no-courses {
     color: white;
     font-size: xx-large;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .container {  
+        height: 100%;
+        display: grid;
+        grid-template-columns: 0.6fr 1fr 1fr 1fr;
+        grid-template-rows: 0.2fr 1.2fr 1.3fr 1.3fr;
+        grid-auto-columns: 1fr;
+        grid-auto-rows: 1fr;
+        gap:0px;
+        grid-auto-flow: row;
+        grid-template-areas:
+          "navbar navbar navbar navbar"
+          "sidebar sidebar sidebar sidebar"
+          "cont cont cont cont"
+          "cont cont cont cont";
+      }
+
+      .sidebar {
+        grid-area: sidebar;
+        background-color: #26282B;
+        box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+        border-radius: 0px 0px 15px 15px;
+        user-select: none;
+    }
+
+    .sidebar div {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .courses-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+ 
+    .name{
+        display: flex;
+        gap: 10px;
+    }
+
+    .course-card {
+        width: 100%;
+    }
+
 }

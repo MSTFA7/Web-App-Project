@@ -77,7 +77,7 @@ include("../includes/database.php"); // Include your database connection file
 
             <label for="user_type">Select User Type:</label>
             <!-- <div class="input-control-select"> -->
-            <select id="user_type" name="user_type" class="input-control-select">
+            <select id="user_type" name="user_type">
                 <option value="" disabled selected>Select a user type</option>
                 <option value="1">Student</option>
                 <option value="2">Teacher</option>

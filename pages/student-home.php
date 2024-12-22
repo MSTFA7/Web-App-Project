@@ -29,17 +29,17 @@ $result = $connection->query($query);
         </div>
         <div class="sidebar">
             <div class="name">
-                <h1>Hello,</h1>
+                <h1>Hello, </h1>
                 <h1><?php echo htmlspecialchars($first_name); ?></h1>
             </div>
             <div class="linebreak"></div>
-            <div>
+            <div class="sidebar-content">
                 <ul>
                     <li><a href="#" onclick="showTab('courses')"><span class="material-symbols-outlined">check</span>My
                             Courses</a></li>
                     <li><a href="#" onclick="showTab('enroll')"><span
                     class="material-symbols-outlined">add_circle</span>Enroll</a></li>
-                    <li><a href="#" onclick="showTab('help')"><span class="material-symbols-outlined">help</span>Help</a></li>
+                    <li><a href="contact.php" onclick="showTab('help')"><span class="material-symbols-outlined">help</span>Help</a></li>
                     <li><a href="../includes/logout.php" class="logout"><span
                     class="material-symbols-outlined">logout</span>LOGOUT</a></li>
                 </ul>

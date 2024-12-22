@@ -36,7 +36,7 @@ include("../includes/database.php"); // Database connection
                                 class="material-symbols-outlined">check</span>Active Courses</a></li>
                     <li><a href="#" onclick="showTab('start-course')"><span
                                 class="material-symbols-outlined">start</span>Start Course</a></li>
-                    <li><a href=""><span class="material-symbols-outlined">help</span>Help</a></li>
+                    <li><a href="contact.php"><span class="material-symbols-outlined">help</span>Help</a></li>
                     <li><a href="../includes/logout.php" class="logout"> <span
                                 class="material-symbols-outlined">logout</span>LOGOUT</a></li>
                 </ul>
@@ -94,10 +94,10 @@ include("../includes/database.php"); // Database connection
                                 echo "
                                 <div class='course-card'>
                                     <h3 style='cursor: pointer;' onclick='viewStudents({$row['course_id']})'>Subject: {$row['subject_name']}</h3>
-                                    <p style='cursor: pointer;' onclick='viewStudents({$row['course_id']})'>Level: Grade {$row['level_name']}</p>
-                                    <p style='cursor: pointer;' onclick='viewStudents({$row['course_id']})'>Board: {$row['board_name']}</p>
-                                    <p style='cursor: pointer;' onclick='viewStudents({$row['course_id']})'>Semester: {$row['semester_name']}</p>
-                                    <p style='cursor: pointer;' onclick='viewStudents({$row['course_id']})'>Course ID: {$row['course_id']}</p>
+                                    <p class='details' style='cursor: pointer;' onclick='viewStudents({$row['course_id']})'>Level: Grade {$row['level_name']}</p>
+                                    <p class='details' style='cursor: pointer;' onclick='viewStudents({$row['course_id']})'>Board: {$row['board_name']}</p>
+                                    <p class='details' style='cursor: pointer;' onclick='viewStudents({$row['course_id']})'>Semester: {$row['semester_name']}</p>
+                                    <p class='details' style='cursor: pointer;' onclick='viewStudents({$row['course_id']})'>Course ID: {$row['course_id']}</p>
                                     <form action='../includes/teacher-course-delete.php' method='POST'>
                                         <input type='hidden' name='course_id' value='{$row['course_id']}'>
                                         <input type='hidden' name='teacher_id' value='$teacher_id'>
@@ -109,19 +109,19 @@ include("../includes/database.php"); // Database connection
 
                             }
                         } else {
-                            echo "<p>No active courses found.</p>";
+                            echo "<p class='no-courses'>No active courses found.</p>";
                         }
 
                         ?>
 
 
-                        <?php if (isset($_SESSION['exists'])): ?>
-                            <div class="exists" id="exists">
-                                <?= htmlspecialchars($_SESSION['exists']); ?>
-                                <?php unset($_SESSION['exists']); ?>
-                            </div>
-                        <?php endif; ?>
                     </div>
+                    <?php if (isset($_SESSION['exists'])): ?>
+                        <div class="exists" id="exists">
+                            <?= htmlspecialchars($_SESSION['exists']); ?>
+                            <?php unset($_SESSION['exists']); ?>
+                        </div>
+                    <?php endif; ?>
                     <div id="students-container">
                         <!-- Students will load here dynamically -->
                     </div>
@@ -220,7 +220,7 @@ include("../includes/database.php"); // Database connection
             document.querySelector('.exists').classList.add('hidden'); // Target by class
         }, 3000);
 
-        
+
         function showTab(tabId) {
             const tabs = document.querySelectorAll(".tab-content");
             tabs.forEach(tab => {
