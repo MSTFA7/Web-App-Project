@@ -145,12 +145,18 @@ $tables = [
                 <h3>Edit Record</h3>
                 <form method="POST"
                     action="../includes/admin-handler.php?action=edit&table=<?php echo $table; ?>&<?php echo $key_query_string; ?>">
-                    <?php foreach ($columns as $column): ?>
-                        <label
-                            for="<?php echo $column->name; ?>"><?php echo ucwords(str_replace('_', ' ', $column->name)); ?>:</label>
-                        <input type="text" name="data[<?php echo $column->name; ?>]" id="<?php echo $column->name; ?>"
-                            value="<?php echo htmlspecialchars($edit_data[$column->name]); ?>" <?php echo in_array($column->name, $primary_keys) ? 'readonly' : ''; ?>>
-                    <?php endforeach; ?>
+                    <div class="edit-entry">
+
+                        <?php foreach ($columns as $column): ?>
+                            <div>
+                                
+                                <label
+                                    for="<?php echo $column->name; ?>"><?php echo ucwords(str_replace('_', ' ', $column->name)); ?>:</label>
+                                <input type="text" name="data[<?php echo $column->name; ?>]" id="<?php echo $column->name; ?>"
+                                    value="<?php echo htmlspecialchars($edit_data[$column->name]); ?>" <?php echo in_array($column->name, $primary_keys) ? 'readonly' : ''; ?>>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
                     <button type="submit">Save Changes</button>
                 </form>
             <?php endif; ?>
@@ -159,11 +165,15 @@ $tables = [
             <form method="POST" action="../includes/admin-handler.php">
                 <input type="hidden" name="action" value="add">
                 <input type="hidden" name="table" value="<?php echo $table; ?>">
-                <?php foreach ($columns as $column): ?>
-                    <label
-                        for="<?php echo $column->name; ?>"><?php echo ucwords(str_replace('_', ' ', $column->name)); ?>:</label>
-                    <input type="text" name="data[<?php echo $column->name; ?>]" id="<?php echo $column->name; ?>" required>
-                <?php endforeach; ?>
+                <div class="add-entry">
+                    <?php foreach ($columns as $column): ?>
+                       <div>
+                           <label for="<?php echo $column->name; ?>"><?php echo ucwords(str_replace('_', ' ', $column->name)); ?>:</label>
+                           <input type="text" name="data[<?php echo $column->name; ?>]" id="<?php echo $column->name; ?>" required>
+                       </div> 
+                    <?php endforeach; ?>
+                    
+                </div>
                 <button type="submit">Add</button>
             </form>
         <?php endif; ?>

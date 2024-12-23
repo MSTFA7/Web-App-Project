@@ -36,14 +36,14 @@
             <div class="title">E-Learning Portal</div>
             <div class="subtitle-div"><span class="subtitle">Learn a New Skill Everyday!</span></div>
         </div>
-
+        
+        <div class="image">
+            <img src="assets/images/home-background.png" alt="">
+        </div>
         <div class="content-area">
             <span class="content">Dive into an interactive and engaging learning experience tailored just for you. This platform is designed to help you access resources, and achieve your goals seamlessly. Explore a wide range of courses, and unlock new opportunities to grow your skills. Your journey to knowledge starts here — let's make it an exciting one!</span>
         </div>
 
-        <div class="image">
-            <img src="assets/images/home-background.png" alt="">
-        </div>
         <div class="video_container">
             <div class="video_player">
                 <video autoplay controls muted >
