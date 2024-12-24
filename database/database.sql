@@ -141,14 +141,7 @@ CREATE TABLE `users` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `username`, `password`, `email`, `role_id`, `created_at`) VALUES
-(4, 'Mustafa', 'Othman', 'MSTFA', '$2y$10$mC.c8A63tRoWtqZyP9h/wesqNbL/VqTVaRhMwwAvFt4Cew9kuBPmy', 'mustafaothman7@gmail.com', 1, '2024-12-13 12:18:53'),
-(6, 'Youssef', 'Wael', 'joe', '$2y$10$dYGCOiOws2MWsLhep9FNm.9BZaoVViPyGUNsmxYowLGZncRuB35Bu', 'yousef@email.com', 1, '2024-12-13 12:26:09'),
-(7, 'mustafa', 'othman', 'teacher', '$2y$10$efbW3M4K2UdzO7s64s2cueoJ6NYbok2bhA/YRYlQRYg659Q7nt8YW', 'teacher@email.com', 2, '2024-12-13 13:18:07'),
-(8, 'Wagd', 'Hossam', 'wagd', '$2y$10$Bwoq4s0C9liz908YHyzA9.XA6DHX05R8x/OjbDcgvHL0Cyj/m3s.q', 'wagd@email.com', 2, '2024-12-15 15:18:29'),
-(9, 'Admin', 'User', 'admin', '$2y$10$.lNWAFLurU/KuqT0Q2ZWLO9zDHaoD1zF/ytK/EePBUqUOlyi3nQ0W', 'adminuser@email.com', 3, '2024-12-22 13:38:50'),
-(10, 'Mustafa', 'Othman', 'mustafa123', '$2y$10$7VaBHTCCNbw3OFsZxbjaPeJYspvIzbNPkKR2fz8YvCDmBQDc8dkBi', 'asdas@gmail.com', 1, '2024-12-22 22:16:08'),
-(11, 'Mustafa', 'Othman', 'teacher12', '$2y$10$SzhJAS01JKcC9Ap8BuNhFuxX7dL4LZZrHfH47FHfHfFFWFE2QWXUO', 'asdasdasd@gmail.com', 2, '2024-12-22 22:21:04');
+
 
 
 ALTER TABLE `boards`
