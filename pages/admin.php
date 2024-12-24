@@ -35,10 +35,11 @@ $tables = [
     <script>
         // Handle delete confirmation
         function confirmDelete(table, keyParams) {
-            if (confirm("Are you sure you want to delete this record?")) {
-                window.location.href = `../includes/admin-handler.php?action=delete&table=${table}&${keyParams}`;
-            }
-        }
+    if (confirm("Are you sure you want to delete this record?")) {
+        window.location.href = `../includes/admin-handler.php?action=delete&table=${table}&${keyParams}`;
+    }
+}
+
     </script>
     <link rel="stylesheet" href="../assets/css/admin.css">
 </head>
