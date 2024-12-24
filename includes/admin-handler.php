@@ -51,31 +51,29 @@ if ($action === 'add' && $_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "Error: " . $connection->error;
     }
 } elseif ($action === 'delete') {
-    if (isset($_GET['id'])) {
-        // Single primary key delete
-        $id = (int) $_GET['id'];
-        $query = "DELETE FROM $table WHERE $primary_key = $id";
-    } elseif (isset($_GET['student_id'], $_GET['course_id'])) {
-        // Composite key delete for students_courses
-        $student_id = (int) $_GET['student_id'];
-        $course_id = (int) $_GET['course_id'];
-        $query = "DELETE FROM $table WHERE student_id = $student_id AND course_id = $course_id";
-    } elseif (isset($_GET['teacher_id'], $_GET['course_id'])) {
-        // Composite key delete for teachers_courses
-        $teacher_id = (int) $_GET['teacher_id'];
-        $course_id = (int) $_GET['course_id'];
-        $query = "DELETE FROM $table WHERE teacher_id = $teacher_id AND course_id = $course_id";
-    } else {
-        die("Invalid delete request.");
+    $where_conditions = [];
+
+    // Loop through all primary keys dynamically
+    foreach ($primary_keys as $key) {
+        if (!isset($_GET[$key])) {
+            die("Missing primary key: $key");
+        }
+        $where_conditions[] = "$key = '" . $connection->real_escape_string($_GET[$key]) . "'";
     }
 
-    // Execute query
+    // Build the WHERE clause
+    $where_clause = implode(' AND ', $where_conditions);
+    $query = "DELETE FROM $table WHERE $where_clause";
+
+    // Execute the query
     if ($connection->query($query)) {
         header("Location: ../pages/admin.php?table=$table");
         exit;
     } else {
         echo "Error: " . $connection->error;
     }
+
+
 } else {
     die("Invalid action.");
 }
