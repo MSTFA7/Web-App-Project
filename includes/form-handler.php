@@ -1,6 +1,6 @@
 <?php
 // Load environment variables (use a library like vlucas/phpdotenv or directly define constants)
-$access_key = "0648db71-4110-4ffa-b013-027614a239e3"; // Replace this with an environment variable in production
+$access_key = "..."; // Replace this with an environment variable in production
 
 // Get form data
 $name = $_POST['name'] ?? '';
